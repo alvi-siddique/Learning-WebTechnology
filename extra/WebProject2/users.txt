@@ -1,2 +1,0 @@
-alvi,00000000,alvi@abc.com
-ivy,12341234,ivy@abc.com

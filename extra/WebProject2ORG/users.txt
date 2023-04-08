@@ -1,2 +1,0 @@
-aa,00000000,aaa@abc.com
-aa,00000000,aaa@a.com
