@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Date of Birth</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <fieldset>
+            <legend>Date of Birth</legend>
+            <form>
+              <table>
+                <tr>
+                  <th><label>dd</label></th>
+                  <th><label>mm</label></th>
+                  <th><label>yyyy</label></th>
+                </tr>
+                <tr>
+                  <td><input type="number" id="day" min="1" max="31" /> /</td>
+                  <td><input type="number" id="month" min="1" max="12" /> /</td>
+                  <td><input type="number" id="year" min="1900" max="2016" /></td>
+                </tr>
+              </table>
+
+              <hr />
+
+              <input type="button" value="Submit" onclick="validateDate()" />
+            </form>
+          </fieldset>
+        </td>
+      </tr>
+    </table>
+
+    <p id="msg"></p>
+
+    <script>
+      function validateDate() {
+        let day = document.getElementById("day").value.trim();
+        let month = document.getElementById("month").value.trim();
+        let year = document.getElementById("year").value.trim();
+        let Msg = document.getElementById("msg");
+
+        if (day === "" || month === "" || year === "") {
+          Msg.innerHTML = "All fields are required";
+          return false;
+        }
+
+        if (day < 1 || day > 31) {
+          Msg.innerHTML = "Day must be between 1 and 31";
+          return false;
+        }
+
+        if (month < 1 || month > 12) {
+          Msg.innerHTML = "Month must be between 1 and 12";
+          return false;
+        }
+
+        if (year < 1900 || year > 2016) {
+          Msg.innerHTML = "Year must be between 1900 and 2016";
+          return false;
+        }
+
+        Msg.innerHTML = `${day} / ${month} / ${year}`;
+        return true;
+      }
+    </script>
+  </body>
+</html>

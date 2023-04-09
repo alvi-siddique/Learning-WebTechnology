@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Uploading file</title>
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <fieldset>
+              <legend>Profile Picture</legend>
+              User Id <input type="text" id="userIdInput"> <br>
+              Picture <input type="file" id="pictureInput"> <br>
+              <hr>
+              <button type="button" onClick="validateForm()">Submit</button>
+            </fieldset>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+
+    <p id="msg"></p>
+
+    <script>
+      function validateForm() {
+        let userIdInput = document.getElementById("userIdInput");
+        let pictureInput = document.getElementById("pictureInput");
+        let msg = document.getElementById("msg");
+
+        let userId = userIdInput.value.trim();
+        let picture = pictureInput.value.trim();
+
+        if (userId === "" || isNaN(userId) || Number(userId) < 0) {
+          msg.innerHTML = "User Id must be a positive number";
+          return false;
+        }
+
+        if (picture === "") {
+          msg.innerHTML = "Picture cannot be empty";
+          return false;
+        }
+
+        msg.innerHTML = "";
+        return true;
+      }
+    </script>
+  </body>
+</html>

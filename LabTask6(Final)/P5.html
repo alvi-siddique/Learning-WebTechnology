@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Degree checkboxes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <fieldset>
+              <legend>Degree</legend>
+
+              <input type="checkbox" id="SSC" name="options" value="SSC" />
+              <label>SSC</label>
+              <input type="checkbox" id="HSC" name="options" value="HSC" />
+              <label>HSC</label>
+              <input type="checkbox" id="BSc" name="options" value="BSc" />
+              <label>BSc</label><br />
+            </fieldset>
+          </td>
+        </tr>
+      </table>
+      <br />
+      <button type="button" onclick="validate()">Submit</button>
+      <br />
+      <p id="Msg"></p>
+    </form>
+    <script>
+      function validate() {
+        let SSC = document.getElementById("SSC");
+        let HSC = document.getElementById("HSC");
+        let BSc = document.getElementById("BSc");
+        let Msg = document.getElementById("Msg");
+
+        if (!SSC.checked && !HSC.checked && !BSc.checked) {
+          Msg.innerHTML = "Please select at least one option.";
+          return;
+        }
+
+        let selectedOptions = "";
+        if (SSC.checked) {
+          selectedOptions += `${SSC.value}, `;
+        }
+        if (HSC.checked) {
+          selectedOptions += `${HSC.value}, `;
+        }
+        if (BSc.checked) {
+          selectedOptions += `${BSc.value}, `;
+        }
+
+        selectedOptions = selectedOptions.slice(0, -2);
+
+        Msg.innerHTML = `You selected: ${selectedOptions}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Text</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <form>
+      <label>Input:</label>
+      <input type="text" id="inputField" name="inputField" />
+      <br />
+      <button type="button" onclick="validate()">Submit</button>
+      <br />
+      <p id="Msg"></p>
+    </form>
+    <script>
+      function validate() {
+        let inputField = document.getElementById("inputField");
+        let Msg = document.getElementById("Msg");
+
+        let inputValue = inputField.value.trim();
+
+        if (inputValue === "") {
+          Msg.innerHTML = "Please enter a value.";
+          return;
+        }
+
+        let words = inputValue.split(" ");
+
+        if (words.length < 2) {
+          Msg.innerHTML = "Please enter at least two words.";
+          return;
+        }
+
+        for (let word of words) {
+          let firstCharCode = word.charCodeAt(0);
+          if (!((firstCharCode >= 65 && firstCharCode <= 90) || (firstCharCode >= 97 && firstCharCode <= 122))) {
+            Msg.innerHTML = "Words must start with a letter.";
+            return;
+          }
+
+          for (let i = 1; i < word.length; i++) {
+            let charCode = word.charCodeAt(i);
+            if (!((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 45 || charCode === 46)) {
+              Msg.innerHTML = "Words can only contain letters, dots, or dashes.";
+              return;
+            }
+          }
+        }
+
+        Msg.innerHTML = inputValue;
+      }
+    </script>
+  </body>
+</html>

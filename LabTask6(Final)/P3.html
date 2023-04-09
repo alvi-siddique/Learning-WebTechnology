@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Gender radio button</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <form>
+            <fieldset width="50%">
+              <legend>Gender</legend>
+              <input type="radio" id="Male" name="gender" value="Male" />
+              <label>Male</label>
+
+              <input type="radio" id="Female" name="gender" value="Female" />
+              <label>Female</label>
+
+              <input type="radio" id="Other" name="gender" value="Other" />
+              <label>Other</label><br />
+            </fieldset>
+            <br />
+            <button type="button" onclick="validate()">Submit</button>
+            <br />
+            <p id="Msg"></p>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <script>
+      function validate() {
+        let Male = document.getElementById("Male");
+        let Female = document.getElementById("Female");
+        let Other = document.getElementById("Other");
+        let Msg = document.getElementById("Msg");
+        let val = document.getElementsByName("gender");
+
+        if (!Male.checked && !Female.checked && !Other.checked) {
+          Msg.innerHTML = "Please select at least one option.";
+          return;
+        } else if (Male.checked) {
+          Msg.innerHTML = `You selected: ${Male.value}`;
+        } else if (Female.checked) {
+          Msg.innerHTML = `You selected: ${Female.value}`;
+        } else {
+          Msg.innerHTML = `You selected: ${Other.value}`;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validation Email</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <form>
+      <label>Email Address:</label>
+      <input type="text" id="emailField" name="emailField" />
+      <br />
+      <button type="button" onclick="validate()">Submit</button>
+      <br />
+      <p id="Msg"></p>
+    </form>
+    <script>
+      function validate() {
+        let emailField = document.getElementById("emailField");
+        let Msg = document.getElementById("Msg");
+
+        let emailValue = emailField.value.trim();
+
+        if (emailValue === "") {
+          Msg.innerHTML = "Please enter an email address.";
+          return;
+        }
+
+        let emailParts = emailValue.split("@");
+        if (emailParts.length !== 2 || emailParts[0] === "" || emailParts[1] === "") {
+          Msg.innerHTML = "Please enter a valid email address.";
+          return;
+        }
+
+        Msg.innerHTML = emailValue;
+      }
+    </script>
+  </body>
+</html>
