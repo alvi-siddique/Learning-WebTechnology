@@ -1,4 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg">
+        <div class="o">
+        <?php
 session_start();
 require_once('../models/userModel.php');
 
@@ -10,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate
     if (empty($username) || empty($password)) {
-        echo 'All fields are required.';
+        echo '<p>All fields are required.</p>';
     } elseif ($username == 'admin' && $password == 'admin') {
         // Login admin
         session_start();
@@ -26,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = "$username";
              header('location: ../views/home.php');
          }else{
-             echo "invalid user";
+             echo "<p>invalid user</p>";
          }
      }
 }else{
@@ -34,3 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('location: ../index.html');
 }
 ?>
+        </div>
+    </div>
+</body>
+</html>
