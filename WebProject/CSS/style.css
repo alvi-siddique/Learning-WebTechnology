@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+img {
+    vertical-align: middle;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.bg {
+    background: url(BG.jpg) no-repeat center/ cover;
+    height: 100vh;
+}
+
+.bg .o {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+a {
+    padding: 6px;
+    margin: 5px;
+    background-color: rgb(5, 49, 49);
+    color: aliceblue;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+label, button, input {
+    background-color: rgb(5, 49, 49);
+    color: white;
+    margin: 5px;
+    border: 0;
+    padding: 5px;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    color: antiquewhite;
+}
+
+echo {
+    color: aliceblue;
+}
+
+/* button {
+    background-color: rgb(5, 49, 49);
+} */
